@@ -2,7 +2,17 @@
 
 ## Overview
 
-This paper [...]
+This project analyzes Canadian government procurement contracts to investigate whether political factors, such as governing party affiliation and swing riding status, influence contract allocation to federal electoral ridings. The analysis examines if ridings represented by Members of Parliament from the governing party receive more contracts, and if swing ridings (competitive districts) benefit disproportionately for electoral advantages.
+
+## Data Sources and Processing
+
+The primary dataset consists of government procurement contracts, including contract details and postal codes. Missing data elements are derived as follows:
+
+- **Riding Name**: Confirmed using postal code to federal riding lookup tables from external databases (e.g., Elections Canada or open data sources).
+- **Member of Parliament**: Determined based on the contract award year, using historical MP data from sources like the Parliament of Canada or open parliament databases.
+- **Party Affiliation**: Retrieved from the same historical MP sources, including whether the party was governing at the time of the contract.
+
+Additional data includes electoral boundaries, political affiliations, and socioeconomic controls to support the analysis.
 
 ## File Structure
 
@@ -13,6 +23,7 @@ The repo is structured as follows (change as needed):
 -   `01-raw_data` contains the raw data as obtained from [City of Toronto Open Data](https://open.toronto.ca/).
 -   `02-analysis_data` contains the cleaned datasets that were constructed.
 -   `03-table_data` contains formatted data tables used to generate Quarto outputs.
+-   `04-ridings_postal_codes` contains electoral riding boundaries and postal code lookup tables used to map neighbourhoods to federal ridings, including political affiliations of Members of Parliament (party affiliation and whether it reflects the governing party).
 
 ### `scripts/`  
 -   `00.0-run_pipeline.py` executes the entire data processing pipeline from simulation to final outputs.
